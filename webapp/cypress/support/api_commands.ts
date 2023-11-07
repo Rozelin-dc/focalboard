@@ -50,6 +50,7 @@ Cypress.Commands.add('apiInitServer', () => {
         password: 'aaaaaaaa',
         email: Cypress.env('email'),
     }
+    cy.clearCookies()
     return cy.apiLoginUser(data)
 })
 

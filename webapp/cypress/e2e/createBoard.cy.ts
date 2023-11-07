@@ -7,7 +7,6 @@ describe('Create and delete board / card', () => {
     const cardTitle = `Test Card (${timestamp})`
 
     beforeEach(() => {
-        cy.clearCookies()
         cy.apiInitServer()
         cy.apiResetBoards()
         cy.apiGetMe().then((userID) => cy.apiSkipTour(userID))
