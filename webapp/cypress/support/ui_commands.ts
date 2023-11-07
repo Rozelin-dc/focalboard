@@ -16,6 +16,6 @@ Cypress.Commands.add('uiCreateBoard', (item: string) => {
 Cypress.Commands.add('uiCreateEmptyBoard', () => {
     cy.log('Create new empty board')
 
-    cy.contains('+ Add board').should('be.visible').click().wait(500)
-    return cy.contains('Create an empty board').click({force: true}).wait(1000)
+    cy.get('.add-board').should('be.visible').click().wait(500)
+    cy.contains('Create an empty board').click({force: true}).wait(500)
 })

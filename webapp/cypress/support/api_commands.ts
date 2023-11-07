@@ -46,11 +46,11 @@ const headers = () => ({
 
 Cypress.Commands.add('apiInitServer', () => {
     const data: Cypress.UserData = {
-        username: Cypress.env('username'),
-        password: Cypress.env('password'),
+        username: 'a',
+        password: 'aaaaaaaa',
         email: Cypress.env('email'),
     }
-    return cy.apiRegisterUser(data, '', false).apiLoginUser(data)
+    return cy.apiLoginUser(data)
 })
 
 Cypress.Commands.add('apiDeleteBoard', (id: string) => {

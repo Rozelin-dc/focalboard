@@ -7,6 +7,7 @@ describe('Create and delete board / card', () => {
     const cardTitle = `Test Card (${timestamp})`
 
     beforeEach(() => {
+        cy.clearCookies()
         cy.apiInitServer()
         cy.apiResetBoards()
         cy.apiGetMe().then((userID) => cy.apiSkipTour(userID))
@@ -15,9 +16,9 @@ describe('Create and delete board / card', () => {
     })
 
     it('MM-T4274 Create an Empty Board', () => {
-        cy.visit('/')
+        cy.visit('/').wait(2000)
 
-        cy.contains('+ Add board').should('exist').click()
+        cy.get('.add-board').should('exist').click().wait(500)
 
         // Tests for template selector
         cy.contains('Use this template').should('exist')
@@ -42,6 +43,9 @@ describe('Create and delete board / card', () => {
     it('Can create and delete a board and a card', () => {
         // Visit a page and create new empty board
         cy.visit('/')
+
+        // cy.url().should('match', /.*\/[a-z0-9]+\/[a-z0-9]+$/)
+
         cy.uiCreateEmptyBoard()
 
         // Change board title
@@ -133,10 +137,13 @@ describe('Create and delete board / card', () => {
 
         // Delete board
         cy.log('**Delete board**')
-        cy.get('.Sidebar .octo-sidebar-list').then((el) => {
+
+        // cy.reload().wait(1000)
+        // cy.url().should('match', /.*\/[a-z0-9]+\/[a-z0-9]+$/).wait(1000)
+        cy.get('.octo-sidebar-list').then((el) => {
             cy.log(el.text())
         })
-        cy.get('.Sidebar .octo-sidebar-list').
+        cy.get('.octo-sidebar-list').
             contains(boardTitle).
             parent().
             find('.MenuWrapper').
@@ -181,7 +188,7 @@ describe('Create and delete board / card', () => {
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.get('.Kanban').
             trigger('dragover', {clientX: 400, clientY: Cypress.config().viewportHeight / 2}).
-            wait(4500).
+            wait(5000).
             trigger('dragend')
 
         cy.get('.Kanban').invoke('scrollLeft').should('equal', 0)
