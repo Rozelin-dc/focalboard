@@ -95,7 +95,7 @@
 		"@formatjs/cli": "^4.8.2",
 		"@formatjs/ts-transformer": "^3.9.2",
 		"@swc/jest": "^0.2.20",
-		"@testing-library/cypress": "^8.0.2",
+		"@testing-library/cypress": "^8.0.7",
 		"@testing-library/dom": "^8.11.4",
 		"@testing-library/jest-dom": "^5.16.3",
 		"@testing-library/react": "^11.2.5",
@@ -119,9 +119,9 @@
 		"copy-webpack-plugin": "^10.2.4",
 		"cross-env": "^7.0.3",
 		"css-loader": "^6.7.1",
-		"cypress": "^9.5.2",
+		"cypress": "^10.11.0",
 		"cypress-failed-log": "^2.9.5",
-		"cypress-real-events": "^1.7.0",
+		"cypress-real-events": "^1.11.0",
 		"eslint": "^8.11.0",
 		"eslint-import-resolver-webpack": "0.13.2",
 		"eslint-plugin-babel": "^5.3.1",
@@ -157,6 +157,6 @@
 		"webpack-merge": "^5.8.0"
 	},
 	"optionalDependencies": {
-		"cypress": "^9.5.2"
+		"cypress": "^10.11.0"
 	}
 }
